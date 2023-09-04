@@ -7,8 +7,9 @@ function getComputerChoice() {
         return "rock";
     } else if (computerChoice == 1) {
         return "paper";
+    } else {
+        return "scissors";
     }
-    return "scissors";
 }
 
 function getRandomInt(max) {
@@ -16,9 +17,27 @@ function getRandomInt(max) {
     // returns the floor of max (integer) * a random decimal from 0 -> 1
 }
 
+function singleRound() {
+    let playerChoice = (window.prompt("Hey, Rock, Paper or Scissors?", "").toLowerCase());
+    console.log("Player Choice was: " + playerChoice);
 
-console.log(getRandomInt(3));
+    let compChoice = getComputerChoice();
 
+    console.log("Computer Choice was: " + compChoice);
+    if (playerChoice == compChoice) {
+        return "Draw, you both got the same item!";
+    } else if (playerChoice == "rock" && compChoice == "paper") {
+        return "You Lose! Paper beats rock!";
+    } else if (playerChoice == "rock" && compChoice == "scissors") {
+        return "You Win! Rock beats scissors!";
+    }
+    // only going to test for rock selection for player
+}
+let message = "";
+function game() {
+    message = singleRound();
+    console.log(message);
+}
 
+game();
 
-const aNumber = (window.prompt("Hey, Rock, Paper or Scissors?", ""));
